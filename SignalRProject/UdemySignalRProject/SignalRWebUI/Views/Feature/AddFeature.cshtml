@@ -1,0 +1,33 @@
+﻿@model CreateFeatureDTO
+@{
+    ViewData["Title"] = "AddFeature";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Öne Çıkan Ekleme Paneli</div>
+					</div>
+
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Başlık:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Title" class="form-control" placeholder="Başlığı Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Açıklama:</label>
+							<textarea style="margin-left:-10px" type="text" asp-for="Description" class="form-control" placeholder="Açıklamayı Giriniz..."></textarea>
+						</div>
+					</div>
+					<button class="btn btn-success">Kaydet</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+

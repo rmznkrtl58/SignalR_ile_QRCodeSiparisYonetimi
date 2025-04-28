@@ -1,0 +1,50 @@
+﻿@model UpdateContactDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				@Html.HiddenFor(x => x.ContactId)
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">İletişim Sayfası Güncelleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Telefon:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Phone" class="form-control" placeholder="Telefon Numarasını Girin...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">E-Posta:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Mail" class="form-control" placeholder="E-Posta Adresini Girin...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Açık Olduğumuz Saatler:</label>
+							<input style="margin-left:-10px" type="text" asp-for="OpenHours" class="form-control" placeholder="Açık Olduğunuz Saatleri Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Harita URL:</label>
+							<input style="margin-left:-10px" type="text" asp-for="LocationUrl" class="form-control" placeholder="Harita Url'nizi Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Açıklama:</label>
+							<textarea style="margin-left:-10px" rows="3" type="text" asp-for="FooterDescription" class="form-control" placeholder="Açıklama Giriniz..."></textarea>
+						</div>
+					</div>
+					<button class="btn btn-success">Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

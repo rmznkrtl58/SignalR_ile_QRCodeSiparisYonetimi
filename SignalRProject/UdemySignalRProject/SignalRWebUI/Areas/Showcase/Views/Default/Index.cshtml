@@ -1,0 +1,11 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Areas/Showcase/Views/Shared/_UILayout.cshtml";
+}
+@await Component.InvokeAsync("_HomePageIntroduction")
+@await Component.InvokeAsync("_HomePageDiscounts")
+@await Component.InvokeAsync("_HomePageMenuList")
+@await Component.InvokeAsync("_HomePageAbout")
+@await Html.PartialAsync("/Areas/Showcase/Views/Message/HomePageCommunication.cshtml")
+@await Component.InvokeAsync("_HomePageTestimonial")

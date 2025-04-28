@@ -1,0 +1,49 @@
+﻿@model List<ResultFeatureDTO>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int txt = 0;
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Öne Çıkanlar:</div>
+				</div>
+				<div class="card-body">
+					<div class="card-sub">
+						Öne Çıkanlar ile ilgili işlemleri aşağıdaki tablodan yapabilirsiniz.
+					</div>
+					<table class="table mt-3">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Başlık:</th>
+								<th scope="col">Detaylar</th>
+								<th scope="col">Sil</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach(var x in Model)
+							{
+								txt += 1;
+								<tr>
+									<td>@txt</td>
+									<td>@x.Title</td>
+									<td><a href="/Feature/UpdateFeature/@x.FeatureId" class="btn btn-warning">Detaylar</a></td>
+									<td><a href="/Feature/DeleteFeature/@x.FeatureId" class="btn btn-danger">Sil</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<a href="/Feature/AddFeature/" style="color:black" class="btn btn-info">Öne Çıkan Ekle</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+
+
+

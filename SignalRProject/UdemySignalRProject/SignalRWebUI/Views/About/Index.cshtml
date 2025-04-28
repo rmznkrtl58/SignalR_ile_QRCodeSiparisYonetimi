@@ -1,0 +1,38 @@
+﻿@model UpdateAboutDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				@Html.HiddenFor(x=>x.AboutId)
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Hakkımızda Güncelleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Ana Başlık:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Title" class="form-control" placeholder="Ana Başlığı Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Açıklama:</label>
+							<textarea style="margin-left:-10px" type="text" asp-for="Description" class="form-control" placeholder="Açıklamayı Giriniz..."></textarea>
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Resim:</label>
+							<input style="margin-left:-10px" type="text" asp-for="ImageUrl" class="form-control" placeholder="Resim Url'ni Giriniz...">
+						</div>
+					</div>
+					<button class="btn btn-success">Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

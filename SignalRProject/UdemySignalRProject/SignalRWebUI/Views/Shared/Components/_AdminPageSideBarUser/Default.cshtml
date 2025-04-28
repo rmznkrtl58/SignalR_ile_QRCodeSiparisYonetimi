@@ -1,0 +1,30 @@
+﻿<div class="user">
+	<div class="photo">
+		<img src="@ViewData["userImg"]">
+	</div>
+	<div class="info">
+		<a class="" data-toggle="collapse" href="#collapseExample" aria-expanded="true">
+			<span>
+				@ViewData["userName"]
+				<span class="user-level">@ViewData["userStatus"]</span>
+				<span class="caret"></span>
+			</span>
+		</a>
+		<div class="clearfix"></div>
+
+		<div class="collapse in" id="collapseExample" aria-expanded="true" style="">
+			<ul class="nav">
+				<li>
+					<a href="/Settings/Index/">
+						<span class="link-collapse">Bilgilerim</span>
+					</a>
+				</li>
+				<li>
+					<a href="/Login/LogOut/">
+						<span class="link-collapse">Çıkış Yap</span>
+					</a>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

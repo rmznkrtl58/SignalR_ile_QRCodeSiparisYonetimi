@@ -1,0 +1,58 @@
+﻿@model List<ResultCategoryDTO>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	int txt = 0;
+	string status = "";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Kategoriler:</div>
+				</div>
+				<div class="card-body">
+					<div class="card-sub">
+						Kategori ile ilgili işlemleri aşağıdaki tablodan yapabilirsiniz.
+					</div>
+					<table class="table mt-3">
+						<thead>
+							<tr>
+								<th scope="col">#</th>
+								<th scope="col">Kategori Adı</th>
+								<th scope="col">Durum:</th>
+								<th scope="col">Detaylar</th>
+								<th scope="col">Sil</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach(var x in Model)
+							{
+								if (x.DeleteStatus == false)
+								{
+									status = "Pasif";
+								}
+								if (x.DeleteStatus == true)
+								{
+									status = "Aktif";
+								}
+								txt += 1;
+								<tr>
+								<td>@txt</td>
+								<td>@x.CategoryName</td>
+								<td>@status</td>
+								<td><a href="/Category/EditCategory/@x.CategoryId" class="btn btn-warning">Detaylar</a></td>
+								<td><a href="/Category/DeleteCategory/@x.CategoryId" class="btn btn-danger">Sil</a></td>
+							</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<a href="/Category/AddCategory/" style="color:black"  class="btn btn-info">Yeni Kategori</a>
+			</div>
+		</div>
+
+	</div>
+</div>
+

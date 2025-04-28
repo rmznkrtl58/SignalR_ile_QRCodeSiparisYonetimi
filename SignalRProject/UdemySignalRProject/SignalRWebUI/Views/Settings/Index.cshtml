@@ -1,0 +1,50 @@
+﻿@using SignalRWebUI.DTOs.IdentityDTOs
+@model IdentityUpdateDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Kullanıcı Güncelleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Ad Soyad:</label>
+							<input style="margin-left:-10px" type="text" asp-for="nameSurname" class="form-control" placeholder="Adınızı Soyadınızı Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Mail Adresi:</label>
+							<input style="margin-left:-10px" type="text" asp-for="mail" class="form-control" placeholder="Mail Adresini Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Kullanıcı Adı:</label>
+							<input style="margin-left:-10px" type="text" asp-for="userName" class="form-control" placeholder="Kullanıcı Adını Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Şifre:</label>
+							<input style="margin-left:-10px" type="password" asp-for="password" class="form-control" placeholder="Şifrenizi Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Şifre Tekrar:</label>
+							<input style="margin-left:-10px" type="password" asp-for="confirmPassword" class="form-control" placeholder="Şifrenizi Tekrar Giriniz...">
+						</div>
+					</div>
+					<button class="btn btn-warning">Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

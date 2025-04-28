@@ -1,0 +1,38 @@
+﻿@using SignalRWebUI.DTOs.NotificationDTOs
+@model ResultNotificationDTO
+@{
+    ViewData["Title"] = "EditNotification";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				@Html.HiddenFor(x => x.NotificationId)
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Bildirim Güncelleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">İcon:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Icon" class="form-control" placeholder="İcon'u Yazınız...">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Bildirim Tipi:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Type" class="form-control" placeholder="Bildirim Tipini Yazınız...">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Açıklama:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Description" class="form-control" placeholder="Açıklamayı Yazınız...">
+						</div>
+					</div>
+					<button class="btn btn-success">Bildirim Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+

@@ -1,0 +1,41 @@
+﻿@model UpdateSocialMediaDTO
+@{
+    ViewData["Title"] = "UpdateSocialMedia";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				@Html.HiddenFor(x=>x.SocialMediaId)
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Kategori Ekleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Sosyal Platform Adı:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Title" class="form-control" placeholder="Sosyal Platform Adını Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Sosyal Medya Url:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Url" class="form-control" placeholder="Sosyal Medya Url'ni Giriniz...">
+						</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Sosyal Medya Sembol:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Icon" class="form-control" placeholder="Sosyal Medya İkonunu Giriniz...">
+						</div>
+					</div>
+					<button class="btn btn-success">Güncelle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+

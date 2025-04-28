@@ -1,0 +1,59 @@
+﻿@using SignalRWebUI.DTOs.NotificationDTOs
+@model List<ResultNotificationDTO>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_AdminLayout.cshtml";
+	string status = "";
+	string style = "";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Bildirimler:</div>
+				</div>
+				<div class="card-body">
+					<div class="card-sub">
+						Bildirimler ile ilgili işlemleri aşağıdaki tablodan yapabilirsiniz.
+					</div>
+					<table class="table mt-3">
+						<thead>
+							<tr>
+								<th scope="col">Açıklama:</th>
+								<th scope="col">Tarih:</th>
+								<th scope="col">Durum:</th>
+								<th scope="col">Detaylar</th>
+								<th scope="col">Sil</th>
+							</tr>
+						</thead>
+						<tbody>
+							@foreach (var x in Model)
+							{
+								if (x.Status == false)
+								{
+									status = "Pasif";
+									style = "text-danger";
+								}
+								if (x.Status == true)
+								{
+									status = "Aktif";
+									style = "text-primary";
+								}
+								<tr>
+									<td>@x.Description</td>
+									<td>@Convert.ToDateTime(x.Date).ToString("dd/MM/yyyy")</td>
+									<td class="@style">@status</td>
+									<td><a href="/Notification/EditNotification/@x.NotificationId" class="btn btn-warning">Detaylar</a></td>
+									<td><a href="/Notification/DeleteNotification/@x.NotificationId" class="btn btn-danger">Sil</a></td>
+								</tr>
+							}
+						</tbody>
+					</table>
+				</div>
+				<a href="/Notification/AddNotification/" style="color:black" class="btn btn-success">Yeni Bildirim</a>
+			</div>
+		</div>
+
+	</div>
+</div>

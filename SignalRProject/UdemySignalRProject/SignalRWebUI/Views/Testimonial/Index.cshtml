@@ -1,0 +1,50 @@
+﻿@model List<ResultTestimonialDTO>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<style>
+    .messageimg {
+        border-radius: 50%;
+        width: 60px;
+        height: 45px;
+        margin-left: 10px
+    }
+</style>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Referans Listesi:</h4>
+            <div style="margin-top:8px" class="table-responsive">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th> Resim: </th>
+                            <th> Ad Soyad: </th>
+                            <th> Başlık: </th>
+                            <th> Sil </th>
+                            <th> Detaylar </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            <tr>
+                                <td class="py-1">
+                                    <img src="@x.ImageUrl" alt="image" class="messageimg" />
+                                </td>
+                                <td> @x.NameSurname</td>
+                                <td> @x.Title </td>
+                                <td> <a href="/Testimonial/DeleteTestimonial/@x.TestimonialId" class="btn btn-danger">Sil</a> </td>
+                                <td> <a href="/Testimonial/UpdateTestimonial/@x.TestimonialId" class="btn btn-warning">Detaylar</a> </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <a href="/Testimonial/AddTestimonial/" class="btn btn-success">Yeni Referans</a>
+    </div>
+</div>
+
+

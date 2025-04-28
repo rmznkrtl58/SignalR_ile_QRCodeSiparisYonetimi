@@ -1,0 +1,79 @@
+﻿@using SignalRWebUI.DTOs.ContactDTOs
+@model List<ResultContactDTO>
+<footer class="footer_section">
+    <div class="container">
+        <div class="row">
+            @foreach(var x in Model){
+            <div class="col-md-4 footer-col">
+                <div class="footer_contact">
+                    <h4>
+                        Lokasyon:
+                    </h4>
+                    <div class="contact_link_box">
+                        <a href="@x.LocationUrl">
+                            <i class="fa fa-map-marker" aria-hidden="true"></i>
+                            <span>
+                                Üsküdar
+                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-phone" aria-hidden="true"></i>
+                            <span>
+                                Telefon: @x.Phone                            </span>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-envelope" aria-hidden="true"></i>
+                            <span>
+                                    E-Mail: @x.Mail
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <div class="footer_detail">
+                    <a href="" class="footer-logo">
+                        Kartal Fast Food
+                    </a>
+                    <p>
+                        @x.FooterDescription
+                    </p>
+                    <div class="footer_social">
+                        <a href="">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-linkedin" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-instagram" aria-hidden="true"></i>
+                        </a>
+                        <a href="">
+                            <i class="fa fa-pinterest" aria-hidden="true"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 footer-col">
+                <h4>
+                    Açık Olan Günlerimiz
+                </h4>
+                <p>
+                    @x.OpenHours
+                </p>
+            </div>
+            }
+        </div>
+        <div class="footer-info">
+            <p>
+                &copy; <span id="displayYear"></span> Tüm hakları saklıdır.
+                <a href="https://html.design/">Kartal Fast Food</a><br><br>
+                &copy; <span id="displayYear"></span> Design By
+                <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
+            </p>
+        </div>
+    </div>
+</footer>

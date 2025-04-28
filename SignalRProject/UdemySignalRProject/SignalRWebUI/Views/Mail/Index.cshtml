@@ -1,0 +1,38 @@
+﻿@using SignalRWebUI.DTOs.MailDTOs
+@model SendMessageByMailDTO
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<div class="card">
+				<div class="card-header">
+					<div class="card-title">Mail Gönderme Paneli:</div>
+				</div>
+				<div class="card-body">
+					<div class="card-sub">
+						Mail ile ilgili işlemleri aşağıdan yapabilirsiniz.
+					</div>
+					<form method="post">
+						<div style="margin-top:8px" class="form-group">
+							<input type="email" asp-for="receiverMail" placeholder="Gönderilecek Mail'i Giriniz..." class="form-control" />
+						</div>
+						<div style="margin-top:8px" class="form-group">
+							<input type="text" asp-for="subject" placeholder="Konu Giriniz..." class="form-control" />
+						</div>
+						<div style="margin-top:8px" class="form-group">
+							<textarea rows="6" asp-for="Content" class="form-control" placeholder="Açıklama Giriniz..."></textarea>
+						</div>
+						<div style="margin-top:8px">
+							<button class="btn btn-primary">Gönder</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+

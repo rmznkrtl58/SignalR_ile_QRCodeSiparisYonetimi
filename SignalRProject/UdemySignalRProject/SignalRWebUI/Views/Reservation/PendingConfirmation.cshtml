@@ -1,0 +1,83 @@
+﻿@model List<ResultReservationDTO>
+@{
+    ViewData["Title"] = "PendingConfirmation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+@*signalr Scriptleri*@
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(() => {
+
+        var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7223/SignalRHub").build();
+
+        $("#connstatus").text(connection.state);
+
+        connection.start().then(() => {
+            $("#connstatus").text(connection.state);
+
+            setInterval(() => {
+                connection.invoke("GetReservationList");
+            }, 2000);
+
+        }).catch((err) => { console.log(err) });
+
+        connection.on("ReceiveReservationList", (value) => {
+            console.log(value);
+            var status = "";
+            var style = "";
+            let tableHtml = ` <table class="table table-striped">
+                              <thead>
+                                <tr>
+                                <th> Adı Soyadı: </th>
+                                <th> Kişi Sayısı: </th>
+                                <th> Durum: </th>
+                                <th> Detaylar </th>
+                                <th> Onayla </th>
+                                <th> Sil </th>
+                                </tr>
+                              </thead>
+                              <tbody>`
+            $.each(value, (index, item) => {//item->'dan sonra çağıracağımız
+                                            //değer için tablomuzdaki sütun adlarını yazarken
+                                            //ilk harf küçük ikinci kelimenin ilk harfi büyük olck
+                if (item.deleteStatus == true && item.reservationStatus == true) 
+                {
+                    status="Rezervasyon Onaylandı..."
+                    style = "text-primary";
+                }
+                if (item.deleteStatus == true && item.reservationStatus == false) {
+                    status = "Rezervasyon Onaylanmadı..."
+                    style = "text-danger";
+                }
+               
+                                            tableHtml += `<tr>
+                                    <td> ${item.nameSurname}</td>
+                                    <td> ${item.personCount} </td>
+                                        <td class="${style}"> ${status} </td>
+                                    <td> <a href="/Reservation/EditReservation/${item.reservationId}" class="btn btn-warning">Detaylar</a> </td>
+                                        <td> <a href="/Reservation/ConfirmReservation/${item.reservationId}" class="btn btn-info">Onayla</a> </td>
+                                    <td> <a href="/Reservation/DeleteReservation/${item.reservationId}" class="btn btn-danger">Sil</a> </td>
+                                    </tr>`
+            });
+            tableHtml += "</tbody></table >";
+            $("#reservationList").html(tableHtml);
+        });
+    });
+</script>
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Onay Bekleyen Rezervasyonlar:</h4>
+            <div style="margin-top:15px" id="reservationList" class="table-responsive">
+            </div>
+            <div style="margin-top:6px">
+                <a href="/Reservation/AddReservation/" class="btn btn-success">Yeni Rezervasyon</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+

@@ -1,0 +1,39 @@
+﻿@model CreateTestimonialDTO
+@{
+    ViewData["Title"] = "AddTestimonial";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Referans Ekleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Ad Soyad:</label>
+							<input style="margin-left:-10px" type="text" asp-for="NameSurname" class="form-control" placeholder="Ad Soyad Giriniz...">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Başlık:</label>
+							<input style="margin-left:-10px" type="text"  asp-for="Title" class="form-control" placeholder="Başlığı Giriniz...">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Resim:</label>
+							<input style="margin-left:-10px" type="text" asp-for="ImageUrl" class="form-control" placeholder="Resim Url Giriniz...">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Referans Yorumu:</label>
+							<textarea asp-for="Comment" style="margin-left:-10px" class="form-control" rows="4" placeholder="Referansın Yorumunu Giriniz..."></textarea>
+						</div>
+					</div>
+					<button class="btn btn-success">Referans Ekle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+

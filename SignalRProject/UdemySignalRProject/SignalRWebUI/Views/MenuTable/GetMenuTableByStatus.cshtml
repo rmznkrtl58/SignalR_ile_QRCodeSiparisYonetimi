@@ -1,0 +1,70 @@
+﻿
+@{
+    ViewData["Title"] = "GetMenuTableByStatus";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="~/lib/microsoft/signalr/dist/browser/signalr.min.js"></script>
+
+<script type="text/javascript">
+	$(document).ready(() => {
+
+		var connection = new signalR.HubConnectionBuilder().withUrl("https://localhost:7223/SignalRHub").build();
+
+		$("#connstatus").text(connection.state);
+
+		connection.start().then(() => {
+			$("#connstatus").text(connection.state);
+
+			setInterval(() => {
+				connection.invoke("GetMenuTableByStatus");
+			}, 1000);
+
+		}).catch((err) => { console.log(err) });
+
+		connection.on("ReceiveGetMenuTableByStatus", (value) => {
+			console.log(value);
+			let tablehtml = `<div class="row">`;
+			var status = "";
+			var color = "";
+			$.each(value, (index, item) => {
+				if (item.status == false) {
+					status = "Masa Boş";
+					color = "card card-stats card-success";
+				}
+				else {
+					status = "Masa Dolu";
+					color = "card card-stats card-danger";
+				}
+				tablehtml += `<div class="col-md-3">
+					<div class="${color}">
+					<div class="card-body ">
+						<div class="row">
+							<div class="col-5">
+								<div class="icon-big text-center">
+									<i class="la la-certificate"></i>
+								</div>
+							</div>
+							<div class="col-7 d-flex align-items-center">
+								<div class="numbers">
+									<p class="card-category">${item.name}</p>
+										<h4 class="card-title" >${status}</h4>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>`
+			});
+			tablehtml += "</div>"
+			$("#menutablelistbystatus").html(tablehtml);
+		});
+
+	});
+</script>
+<h4 class="page-title">Anlık Masa Durumları Sayfası</h4>
+	<div id="menutablelistbystatus"></div>
+

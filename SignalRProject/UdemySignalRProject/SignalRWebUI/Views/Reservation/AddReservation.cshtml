@@ -1,0 +1,44 @@
+﻿@model CreateReservationDTO
+@{
+    ViewData["Title"] = "AddReservation";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form method="post">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title" style="color:red">Rezervasyon Ekleme Paneli</div>
+					</div>
+					<div class="card-body">
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Adı Soyadı:</label>
+							<input style="margin-left:-10px" type="text" asp-for="NameSurname" class="form-control">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Telefon:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Phone" class="form-control">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">E-Posta:</label>
+							<input style="margin-left:-10px" type="text" asp-for="Mail" class="form-control">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Kişi Sayısı:</label>
+							<input style="margin-left:-10px" type="text" asp-for="PersonCount" class="form-control">
+						</div>
+						<div style="margin-top:-20px" class="form-group">
+							<label style="margin-left:-8px;font-size:25px">Tarih Seçiniz:</label>
+							<input style="margin-left:-10px" type="date" asp-for="ReservationDate" class="form-control">
+						</div>
+					</div>
+					<button class="btn btn-success">Rezervasyonu Ekle</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+
+
