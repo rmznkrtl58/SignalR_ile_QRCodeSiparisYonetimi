@@ -71,4 +71,4 @@ Kullanılan Teknolojiler ve Uygulamalar:
                                                                          ![Proje Görseli](SignalRProject/ProjectImages/S7.png)
                                                                                ![Proje Görseli](SignalRProject/ProjectImages/S8.png)
                                                                                      ![Proje Görseli](SignalRProject/ProjectImages/S9.png)
-                                    ![Proje Görseli](SignalRProject/ProjectImages/Screenshot2025-04-28235213.png)
+             
