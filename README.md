@@ -1,4 +1,6 @@
 Projenin Amacı:
+Projedeki ana odak SignalR kullanımı üzerinedir ve real-time uygulamaları (Anlık mesajlaşma,anlık bildirim gelmesi,anlık masa durumlarının görüntülenmesi,anlık istatistiklerin değişmesi gibi.) geliştirilip projeye entegre edilmiştir.
+
 Admin ve Vitrin panelli olan projemizde,vitrin paneli:Kartal Fast&Food dükkanımıza giren müşterilerin sitemize giriş yaparak menü tarafında ürünleri sepete eklemesi
 ve ilgili masaya ait ürünlerin sepette gözükmesi,
 anlık olarak satış personeliyle mesajlaşabilmesi,
